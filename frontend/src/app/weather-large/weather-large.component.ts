@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class WeatherLargeComponent {
   @Input() weather_data: any;
+  icnSource = 'https://openweathermap.org/img/wn/';
 }
