@@ -1,5 +1,7 @@
 package com.test.joosep_orasmae;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -22,8 +24,10 @@ public class MainController {
      * @return A map with the weather data
      * @throws Exception
      */
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/get_data")
-    public Map<String, Map<String, String>> getData() throws Exception {
+    public ResponseEntity<Map<String, Map<String, String>>> getData() throws Exception {
+        System.out.println("Data request received");
         Map<String, Map<String, String>> data = new HashMap<>(); //date -> weather_data
 
         RestTemplate restTemplate = new RestTemplate();
@@ -56,7 +60,7 @@ public class MainController {
             }
         }
 
-        return data;
+        return ResponseEntity.ok(data);
     }
 
     /**
