@@ -1,17 +1,24 @@
-<mat-card class="day-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-sm-image src="{{ icnSource }}01d@2x.png" />
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="weather-card">
+  <mat-card-content>
+    <div class="weather-info">
+      <img class="weather-icon" src="{{ icnSource }}10d@2x.png" alt="Weather Icon">
+      <div class="temperature-range">
+        <span class="min-temp">{{ displayedWeather.get('tempmin') }}°C</span> - <span class="max-temp">{{ displayedWeather.get('tempmax') }}°C</span>
+      </div>
+      <div class="slider">
+        <mat-slide-toggle class="slider" (change)="toggleDayNight($event)">Day/Night</mat-slide-toggle>
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Select a location</mat-label>
+      <mat-select (selectionChange)="onLocationChange($event)" [value]="selectedLocation">
+        <mat-option *ngFor="let location of places" [value]="location">{{ location }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="selectedLocationWeather">
+      <h3>{{ selectedLocation }} {{ selectedLocationWeather.get('temp') }}</h3>
+    </div>
+  </mat-card-content>
+</mat-card>
 
 <img src="{{ icnSource }}10d@2x.png"/>
