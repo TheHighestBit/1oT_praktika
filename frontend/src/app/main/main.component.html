@@ -1,1 +1,9 @@
-<app-weather-large [weather_data]="today"></app-weather-large>
+<h1 class="page-title">Joosep's Super Epic Weather Site</h1>
+<div class="container">
+    <app-weather-large [weather_data]="today" [title]='today_date'></app-weather-large>
+    <div class="small-container">
+        <app-weather-small [weather_data]="tomorrow" [title]='tomorrow_date'></app-weather-small>
+        <app-weather-small [weather_data]="day_2" [title]='day_2_date'></app-weather-small>
+        <app-weather-small [weather_data]="day_3" [title]='day_3_date'></app-weather-small>
+    </div>
+</div>

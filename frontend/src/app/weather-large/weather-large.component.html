@@ -1,7 +1,10 @@
-<mat-card class="weather-card">
+<mat-card [ngClass]="isNight == true ? 'weather-card-night' : 'weather-card-day'">
   <mat-card-content>
+    <div class="title">{{ title }}</div>
+    <div class="phenomenon-large">{{ displayedWeather.get('phenomenon') }}
+    </div>
     <div class="weather-info">
-      <img class="weather-icon" src="{{ icnSource }}10d@2x.png" alt="Weather Icon">
+      <img class="weather-icon" [src]="currentIconBig" alt="Weather Icon">
       <div class="temperature-range">
         <span class="min-temp">{{ displayedWeather.get('tempmin') }}°C</span> - <span class="max-temp">{{ displayedWeather.get('tempmax') }}°C</span>
       </div>
@@ -9,6 +12,7 @@
         <mat-slide-toggle class="slider" (change)="toggleDayNight($event)">Day/Night</mat-slide-toggle>
       </div>
     </div>
+    <div class="text">{{ displayedWeather.get('text') }}</div>
     <mat-form-field>
       <mat-label>Select a location</mat-label>
       <mat-select (selectionChange)="onLocationChange($event)" [value]="selectedLocation">
@@ -16,9 +20,33 @@
       </mat-select>
     </mat-form-field>
     <div *ngIf="selectedLocationWeather">
-      <h3>{{ selectedLocation }} {{ selectedLocationWeather.get('temp') }}</h3>
+      <div class="temperature-range-flex">
+        <span class='max-temp'> {{ selectedLocationWeather.get('temp') }}°C </span>
+        <div class="phenomenon">{{ selectedLocationWeather.get('phenomenon') }}</div>
+        <img class="weather-icon-small" [src]="currentIconSmall" alt="Weather Icon">
+      </div>
     </div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Sea
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="water-body-info">
+          {{ displayedWeather.get('sea') }}
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Peipsi
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="water-body-info">
+          {{ displayedWeather.get('peipsi') }}
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-card-content>
 </mat-card>
-
-<img src="{{ icnSource }}10d@2x.png"/>

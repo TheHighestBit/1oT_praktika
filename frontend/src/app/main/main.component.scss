@@ -1,8 +1,21 @@
-.example-card {
-    max-width: 400px;
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+
+  .small-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .page-title {
+    color: #000000;
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 25px;
+    line-height: 1.2;
   }

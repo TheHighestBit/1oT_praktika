@@ -1,4 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; 
+    font-family: Roboto, 
+    "Helvetica Neue", 
+    sans-serif;
+    background-image: linear-gradient(to left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #91a8e8, #8cb4eb, #8dc0ec, #9ed0ed, #b6dfee, #d2edf1, #f0f9f9); 
+    }
+  
+  .weather-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  
+  .weather-icon {
+    height: 96px;
+    width: 96px;
+    margin-right: 16px;
+  }
+
+  .weather-icon-small {
+    @extend .weather-icon;
+    height: 64px;
+    width: 64px;
+  }
+  
+  .temperature-range {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .min-temp {
+    color: #2196f3;
+  }
+  
+  .max-temp {
+    color: #f44336;
+  }
+  
+  .slider {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px;
+  }
+
+  .temperature-range-flex {
+    @extend .temperature-range;
+    display: flex;
+    align-items: center;
+  }
+
+  .phenomenon {
+    margin: 16px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .phenomenon-large {
+    margin: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .title {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .text {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+
+@media (max-width: 600px) {
+  .weather-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-icon {
+    margin-bottom: 10px;
+  }
+
+  .slider {
+    margin-top: 10px;
+  }
+
+  .temperature-range-flex {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .weather-icon-small {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

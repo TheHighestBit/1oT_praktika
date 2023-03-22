@@ -1,1 +1,17 @@
-<p>weather-small works!</p>
+<mat-card [ngClass]="isNight == true ? 'weather-card-night' : 'weather-card-day'">
+    <mat-card-content>
+    <div class="title">{{ title }}</div>
+      <div class="phenomenon-large">{{ displayedWeather.get('phenomenon') }}</div>
+      <div class="weather-info">
+        <img class="weather-icon" [src]="currentIconBig" alt="Weather Icon">
+        <div class="temperature-range">
+          <span class="min-temp">{{ displayedWeather.get('tempmin') }}°C</span> - <span class="max-temp">{{ displayedWeather.get('tempmax') }}°C</span>
+        </div>
+        <div class="slider">
+          <mat-slide-toggle class="slider" (change)="toggleDayNight($event)">Day/Night</mat-slide-toggle>
+        </div>
+      </div>
+      <div class="text">{{ displayedWeather.get('text') }}</div>
+    </mat-card-content>
+  </mat-card>
+  
