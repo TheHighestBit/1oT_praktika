@@ -18,9 +18,9 @@ public class AverageTemp {
     @Scheduled(cron = "0 0 * * * ?")
     public void calculateAverageTemp() {
         try {
-            int minTemp = 0;
+            float minTemp = 0;
             int minLocations = 0;
-            int maxTemp = 0;
+            float maxTemp = 0;
             int maxLocations = 0;
 
             Map<String, Map<String, String>> data = weatherService.getData();
@@ -39,8 +39,8 @@ public class AverageTemp {
                 }
             }
 
-            FileWriter writer = new FileWriter("average_temp.txt", true);
-            writer.write(dates[0] + " " + LocalTime.now().toString() + " - Average Min temp: " + minTemp / minLocations + " - Average Max temp: " + maxTemp / maxLocations + "\n");
+            FileWriter writer = new FileWriter("average_temps/" + dates[0] + ".txt", true);
+            writer.write(LocalTime.now().toString() + " - Average Min temp: " + minTemp / minLocations + " - Average Max temp: " + maxTemp / maxLocations + "\n");
             writer.close();
 
         } catch (Exception e) {

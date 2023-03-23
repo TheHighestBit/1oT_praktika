@@ -1,6 +1,0 @@
-2023-03-23 - Average Min temp: 3 - Average Max temp: 9
-2023-03-23 - Average Min temp: 3 - Average Max temp: 9
-2023-03-23 20:46:43.770344700 - Average Min temp: 3 - Average Max temp: 9
-2023-03-23 20:46:43.874618700 - Average Min temp: 3 - Average Max temp: 9
-2023-03-23 20:49:00.232309700 - Average Min temp: 3 - Average Max temp: 9
-2023-03-23 21:00:00.057008900 - Average Min temp: 3 - Average Max temp: 9
